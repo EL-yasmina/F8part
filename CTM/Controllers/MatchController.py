@@ -1,7 +1,8 @@
 from Models.Match import Match
 
+
 class MatchController:
-    
+
     def __init__(self):
         pass
 
@@ -18,30 +19,26 @@ class MatchController:
         return list(zip(players[::2], players[1::2]))
 
 
-    def create_matches(self, pairs):
-        """
-        Crée une liste de matches à partir d'une liste de paires de joueurs.
+def create_matches(self, pairs):
+    """Crée une liste de matches à partir d'une liste de paires de joueurs.
 
-        Args:
-            pairs (list): Une liste de paires de joueurs.
+    Args:
+        pairs (list): Une liste de paires de joueurs.
 
-        Returns:
-            list: Une liste de matches.
-        """
-        matches = []
-        for player1, player2 in pairs:
-            match = Match(player1, player2)
-            matches.append(match)
-        return matches
+    Returns:
+        list: Une liste de matches.
+    """
+    matches = []
+    for player1, player2 in pairs:
+        match = Match(player1, player2)
+        matches.append(match)
+    return matches
 
     def pair_players(self, sorted_players, played_matches):
-        """
-        Appaire les joueurs pour un match, en veillant à ce qu'ils n'aient pas joué ensemble.
-
+        """Appaire les joueurs pour un match, en veillant à ce qu'ils n'aient pas joué ensemble.
         Args:
             sorted_players (list): Une liste de joueurs triée par score.
             played_matches (list): Une liste des matches joués précédemment.
-
         Returns:
             list: Une liste de paires de joueurs pour le prochain match.
         """
@@ -87,4 +84,3 @@ class MatchController:
             if player1_name in players_in_match and player2_name in players_in_match:
                 return True
         return False
-
